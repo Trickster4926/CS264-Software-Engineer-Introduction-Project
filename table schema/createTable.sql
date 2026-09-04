@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS student(
     student_title varchar(50) not null,
     student_firstname text not null,
     student_lastname text not null,
-    student_year int4 not null,
+    student_year text not null,
     study_field text not null,
     advisor text not null,
     moo text not null,
