@@ -114,7 +114,8 @@ async function collectData() {
 
   for (let i = 0; i < id; i++) {
     let checkElm = document.getElementById(`AddsubjectCode${i}`);
-    if(checkElm){
+    if(!checkElm) continue;
+    
       let subjectCode = document.getElementById(`AddsubjectCode${i}`).value;
       console.log(subjectCode);
       let subjectName = document.getElementById(`AddsubjectName${i}`).value;
@@ -135,13 +136,14 @@ async function collectData() {
       };
       data.addSubjectList.push(subjectAdd);
   
-    }
+    
  
 
   }
   for (let i = 0; i < id; i++) {
     let checkElm = document.getElementById(`WithdrawsubjectCode${i}`);
-    if(checkElm){
+    if(!checkElm) continue;
+   
       let subjectCode = document.getElementById(`WithdrawsubjectCode${i}`).value;
     let subjectName = document.getElementById(`WithdrawsubjectName${i}`).value;
     let subjectSection = document.getElementById(`WithdrawsubjectSection${i}`).value;
@@ -161,36 +163,36 @@ async function collectData() {
     };
     data.dropSubjectList.push(subjectWithdraw);
 
-    }
+    
   }
 
   jsData = JSON.stringify(data);
   console.log(jsData);
   //console.log(data);
 
-  // await fetch('http://localhost:8080/api/reg/createStudent', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: jsData
+  await fetch('/api/reg/createStudent', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: jsData
 
-  // })
-  //   .then(response => {
-  //     if (response.ok) {
-  //       // Request was successful
-  //       window.alert("Record Success");
-  //       return response.json();
+  })
+    .then(response => {
+      if (response.ok) {
+        // Request was successful
+        window.alert("Record Success");
+        return response.json();
 
-  //     } else {
-  //       // Handle errors
-  //       window.alert("Record Fail");
-  //       return null;
-  //     }
-  //   })
-  //   .catch(error => {
-  //     console.error(error);
-  //   });
+      } else {
+        // Handle errors
+        window.alert("Record Fail");
+        return null;
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
 }
 
 

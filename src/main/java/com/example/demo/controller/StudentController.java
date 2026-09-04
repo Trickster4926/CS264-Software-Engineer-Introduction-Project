@@ -31,13 +31,13 @@ public class StudentController {
     }
 
     @GetMapping("/updateStudent")
-    public boolean updateStudentNameById(@RequestParam (name = "studentID" , required = true) String studentId,
+    public void updateStudentNameById(@RequestParam (name = "studentID" , required = true) String studentId,
                                          @RequestParam (name = "studentName" , required = true) String studentName){
-        return studentRepository.updateStudentNameById(studentId,studentName);
+        studentRepository.updateStudentNameById(studentId,studentName);
 
     }
     @DeleteMapping("/deleteStudent")
-    public boolean deleteStudentById(@RequestParam (name = "studentID") String studentId){
-        return studentRepository.deleteStudentById(studentId);
+    public void deleteStudentById(@RequestParam (name = "studentID") String studentId){
+        studentRepository.deleteStudentById(studentId);
     }
 }

@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +25,6 @@ public class Student {
     private String  postalCode;
     private String  mobilePhone;
     private String  phone ;
-    private Subject[]  addSubjectList;
-    private Subject[]  dropSubjectList;
+    private List<Subject>  addSubjectList;
+    private List<Subject>  dropSubjectList;
 }
